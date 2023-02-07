@@ -1,46 +1,40 @@
-import { ActionArgs, json, redirect } from '@remix-run/node';
+import { ActionArgs, json, LoaderArgs, redirect } from '@remix-run/node';
 import { Form, useLoaderData } from '@remix-run/react';
 import { badRequest } from '~/utils/request.server';
+import { createUserSession, getUserId } from '~/utils/session.server';
 
-export const loader = async () => {
-  return json({
-    posts: [
-      {
-        slug: 'my-first-post',
-        title: 'My First Post',
-      },
-      {
-        slug: '90s-mixtape',
-        title: 'A Mixtape I Made Just For You',
-      },
-    ],
-  });
+export const loader = async ({ request }: LoaderArgs) => {
+  const user = await getUserId(request);
+  console.log(user);
+  return { user: user };
 };
 
-export async function action({request}: ActionArgs){
-    // const form = await request.formData();
+export async function action({ request }: ActionArgs) {
+  const form = await request.formData();
+  const name = form.get('name');
 
-    
-   return badRequest({
-        fieldErrors: null,
-        formError: "Not implemented",
-      });
+  if (!form || !name || typeof name !== 'string') {
+    return badRequest({
+      fieldErrors: 'null',
+      formError: 'Not implemented',
+    });
+  } else {
+    return createUserSession(name, '/');
+  }
 }
 
 export default function UserHome() {
-  const { posts } = useLoaderData<typeof loader>();
-  const items = posts?.map((post, i)=>{
-    return <li key={i}>{post.title}</li>
-  })
-
+  const data = useLoaderData<typeof loader>();
   return (
     <main>
-      <h1> Welcome </h1>
-      <ul>
-        {items}
-      </ul>
+      <h1> Welcome {data.user !== 'null' ? data.user : ''} </h1>
       <Form method="post">
-        <input type="text" name="title" />
+        <input
+          type="text"
+          name="name"
+          id="name-input"
+          className="border mx-2 border-purple-500 rounded-sm"
+        />
         <button type="submit">Create</button>
       </Form>
     </main>
