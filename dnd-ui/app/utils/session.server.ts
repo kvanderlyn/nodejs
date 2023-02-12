@@ -24,6 +24,16 @@ export async function createUserSession(name: string, redirectTo: string) {
   });
 }
 
+export async function setThemePreference(theme: string, redirectTo: string) {
+  const session = await storage.getSession();
+  session.set('theme', theme);
+  return redirect(redirectTo, {
+    headers: {
+      'Set-Cookie': await storage.commitSession(session),
+    },
+  });
+}
+
 function getUserSession(request: Request) {
   return storage.getSession(request.headers.get('Cookie'));
 }
@@ -33,4 +43,11 @@ export async function getUserId(request: Request) {
   const userId = session.get('userId');
   if (!userId || typeof userId !== 'string') return 'null';
   return userId;
+}
+
+export async function getTheme(request: Request) {
+  const session = await getUserSession(request);
+  const theme = session.get('theme');
+  if (!theme || typeof theme !== 'string') return process.env.DEFAULT_THEME;
+  return theme;
 }

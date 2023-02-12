@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import {
   Bars3Icon,
-  BellIcon,
+  Cog6ToothIcon,
   ExclamationTriangleIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline';
@@ -47,7 +47,9 @@ export default function TopNav(props: {
   );
   const banner = (
     <div
-      className={`mx-auto px-2 py-1 sm:px-6 lg:px-8 ${colorPalette.object.bg} text-xs ${colorPalette.object.text}`}
+      className={`mx-auto px-2 py-1 sm:px-6 lg:px-8 ${
+        colorPalette?.object?.bg || 'sky'
+      } text-xs ${colorPalette?.object?.text || 'white'}`}
     >
       {bannerText}
     </div>
@@ -74,7 +76,7 @@ export default function TopNav(props: {
                 </div>
                 <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                   <div className="flex flex-shrink-0 items-center">
-                    <div className={colorPalette.text}>
+                    <div className={colorPalette?.text || 'white'}>
                       <span className="">Campaign</span>
                       <span className="">Companion</span>
                     </div>
@@ -100,13 +102,13 @@ export default function TopNav(props: {
                   </div>
                 </div>
                 <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                  <button
-                    type="button"
+                  <a
+                    href="/settings"
                     className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                   >
-                    <span className="sr-only">View notifications</span>
-                    <BellIcon className="h-6 w-6" aria-hidden="true" />
-                  </button>
+                    <span className="sr-only">Modify Settings</span>
+                    <Cog6ToothIcon className="h-6 w-6" aria-hidden="true" />
+                  </a>
 
                   {/* Profile dropdown */}
                   <Menu as="div" className="relative ml-3">
