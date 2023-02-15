@@ -1,6 +1,7 @@
 import { ActionArgs, LoaderArgs } from '@remix-run/node';
 import { Form, Link } from '@remix-run/react';
 import Button from '~/components/buttons/button';
+import { button_colors } from '~/utils/enums';
 import { badRequest } from '~/utils/request.server';
 import { getTheme, setThemePreference } from '~/utils/session.server';
 
@@ -32,7 +33,16 @@ export default function Settings() {
             <option value="sky">Blue</option>
             <option value="lime">Green</option>
           </select>
-          <Button type='submit'>Save</Button>
+          <Button type='submit' bgColor={button_colors.danger}>Save</Button>
+          <Button type='submit' bgColor={button_colors.red}>Save</Button>
+          <Button type='submit' bgColor={button_colors.default}>Save</Button>
+          <Button type='submit' bgColor={button_colors.success}>Save</Button>
+          <Button type='submit' bgColor={button_colors.warning}>Save</Button>
+
+          <Button type='submit' inverted bgColor={button_colors.danger}>Save</Button>
+          <Button type='submit' inverted bgColor={button_colors.default}>Save</Button>
+          <Button type='submit' inverted bgColor={button_colors.success}>Save</Button>
+          <Button type='submit' inverted bgColor={button_colors.warning}>Save</Button>
           {/* <button type="submit">Save</button> */}
         </Form>
       </div>

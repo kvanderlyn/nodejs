@@ -6,7 +6,7 @@ import {
   ExclamationTriangleIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline';
-import { colorConfig, navLink } from './navInterfaces';
+import { colorInterface, navLink } from './navInterfaces';
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
@@ -14,7 +14,7 @@ function classNames(...classes: string[]) {
 
 export default function TopNav(props: {
   navigation: navLink[];
-  colorPalette: colorConfig;
+  colorPalette: colorInterface;
 }) {
   const { navigation, colorPalette } = props;
   const mobileNavPanel = (
@@ -48,7 +48,7 @@ export default function TopNav(props: {
   const banner = (
     <div
       className={`mx-auto px-2 py-1 sm:px-6 lg:px-8 ${
-        colorPalette?.object?.bg || 'sky'
+        colorPalette?.object?.color || 'sky'
       } text-xs ${colorPalette?.object?.text || 'white'}`}
     >
       {bannerText}

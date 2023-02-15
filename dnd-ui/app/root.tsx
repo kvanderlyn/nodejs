@@ -57,9 +57,6 @@ export default function App() {
       </head>
       <body>
         <TopNav navigation={navigation} colorPalette={color} />
-        {/* <button className="border-2 text-xs px-3 py-1 border-red-500 hover:bg-red-500 hover:text-white rounded-full text-red-500 m-1" onClick={()=> {setColor(colors.red)}}>Red</button>
-        <button className="border-2 text-xs px-3 py-1 border-lime-500  hover:bg-lime-500 hover:text-white rounded-full text-lime-500 m-1" onClick={()=> {setColor(colors.lime)}}>Green</button>
-        <button className="border-2 text-xs px-3 py-1 border-sky-500  hover:bg-sky-500 hover:text-white rounded-full text-sky-500 mx-1" onClick={()=> {setColor(colors.sky)}}>Blue</button> */}
         <Outlet />
         <ScrollRestoration />
         <Scripts />

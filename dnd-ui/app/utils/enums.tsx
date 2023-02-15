@@ -1,8 +1,11 @@
 export enum button_colors {
-    success,
-    warning,
-    danger,
-    primary
+    success = "success",
+    warning = "warning",
+    danger = "danger",
+    default = "default",
+    red = "red",
+    lime = "lime",
+    sky = "sky"
 }
 
 export enum theme_colors {
