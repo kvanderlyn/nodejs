@@ -11,4 +11,8 @@ export const colorConfig = {
     object: { bg: 'bg-lime-500', text: 'text-black' },
     text: 'text-lime-500',
   },
+  danger:{
+    object:{color: 'bg-red-500', text: 'text-white'},
+    inverted:{color: 'border-red-500 bg-transparent', text: 'text-red-500'}
+  }
 };

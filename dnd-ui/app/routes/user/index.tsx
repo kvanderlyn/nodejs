@@ -19,7 +19,7 @@ export async function action({ request }: ActionArgs) {
       formError: 'Not implemented',
     });
   } else {
-    return createUserSession(name, '/');
+    return createUserSession(name, '/user');
   }
 }
 
@@ -35,7 +35,7 @@ export default function UserHome() {
           id="name-input"
           className="border mx-2 border-purple-500 rounded-sm"
         />
-        <button type="submit">Create</button>
+        <button type="submit">Set Name</button>
       </Form>
     </main>
   );
