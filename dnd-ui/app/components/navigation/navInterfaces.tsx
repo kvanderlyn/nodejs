@@ -1,7 +1,7 @@
 export interface navLink {
   name: string;
   link: string;
-  active: boolean;
+  active?: boolean;
 }
 
 export interface colorInterface {

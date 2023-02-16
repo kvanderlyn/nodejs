@@ -11,19 +11,19 @@ interface ButtonProps {
   primary?: colorInterface;
   type?: 'button' | 'submit' | 'reset';
   shape?: 'rounded' | 'rounded-full' | 'square';
-  inverted?: boolean
+  inverted?: boolean;
+  borderless?: boolean;
 }
 
 export default function Button(props: ButtonProps) {
-  const { children, bgColor, className, type, shape, inverted } = props;
+  const { children, bgColor, className, type, shape, inverted, borderless } = props;
   const buttonColor = getColor(bgColor)
   const buttonShape = shape ? shape : 'rounded-full'
   const buttonStyle = inverted ? 'inverted' : 'object'
   const hover = bgColor? colorConfig[bgColor][buttonStyle].hover : colorConfig.default[buttonStyle].hover
-  console.log(buttonColor[buttonStyle].color)
   const shadow = `drop-shadow-sm`
   const defaultStyles =className? className : `mx-2 px-4 ${buttonColor[buttonStyle].text} focus:ring-2 ring-offset-2 hover:text-white`
-  return <button className={`${buttonColor[buttonStyle].color} ${shadow} ${buttonShape} ${defaultStyles} ${hover}`} type={type ? type : 'button'}>{props.children}</button>;
+  return <button className={`${buttonColor[buttonStyle].color} ${borderless? '' : 'border-2'} ${shadow} ${buttonShape} ${defaultStyles} ${hover}`} type={type ? type : 'button'}>{props.children}</button>;
 }
 
 function getColor(bgColor: button_colors | undefined) {
