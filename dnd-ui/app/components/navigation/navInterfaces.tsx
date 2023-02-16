@@ -4,7 +4,8 @@ export interface navLink {
   active: boolean;
 }
 
-export interface colorConfig {
-  object:{bg: string, text: string},
+export interface colorInterface {
+  object:{color: string, text: string, hover: string},
+  inverted:{color: string, text: string, hover: string},
   text:string
 }
