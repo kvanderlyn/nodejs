@@ -29,7 +29,7 @@ const navigation: navLink[] = [
 const logoComponent = (
   <Link to={'/'}>
     <img
-      style={{ height: '1.5rem' }}
+      className='h-6'
       src={logo}
       alt="campaign companion logo"
     />

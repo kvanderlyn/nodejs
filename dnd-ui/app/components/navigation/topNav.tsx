@@ -17,8 +17,9 @@ export default function TopNav(props: {
   navigation: navLink[];
   colorPalette: colorInterface;
   logo?: React.ReactNode;
+  bgColor?:string;
 }) {
-  const { navigation, colorPalette, logo } = props;
+  const { navigation, colorPalette, logo, bgColor } = props;
   const userLinks = [
     { name: 'Profile', link: '#' },
     { name: 'Settings', link: '/settings' },
@@ -95,7 +96,7 @@ export default function TopNav(props: {
   return (
     <Fragment>
       {banner}
-      <Disclosure as="nav" className="bg-slate-800">
+      <Disclosure as="nav" className={bgColor? bgColor : 'bg-slate-800'}>
         {({ open }) => (
           <Fragment>
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">

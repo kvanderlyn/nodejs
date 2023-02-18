@@ -1,8 +1,8 @@
 export const colorConfig = {
   red: {
-    object: { color: 'bg-red-500  border-rose-500', text: 'text-white', hover: 'hover:bg-rose-700 hover:border-rose-700' },
-    inverted: { color: ' border-rose-500', text: 'text-rose-500', hover: 'hover:bg-rose-500' },
-    text: 'text-red-500',
+    object: { color: 'bg-orange-600  border-orange-600', text: 'text-black', hover: 'hover:bg-orange-700 hover:border-orange-700' },
+    inverted: { color: ' border-orange-600', text: 'text-orange-600', hover: 'hover:bg-orange-600' },
+    text: 'text-orange-600',
   },
   sky: {
     object: { color: 'bg-sky-500  border-sky-500', text: 'text-white', hover: 'hover:bg-sky-700 hover:border-sky-700' },
