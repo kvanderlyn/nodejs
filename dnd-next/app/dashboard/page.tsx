@@ -1,0 +1,9 @@
+import * as React from 'react';
+import { useState, useEffect } from 'react';
+
+
+function Dashboard() {
+    return ( <div>dashboard</div> );
+}
+
+export default Dashboard;
